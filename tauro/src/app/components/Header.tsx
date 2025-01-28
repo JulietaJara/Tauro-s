@@ -4,7 +4,7 @@ export default function Header() {
   return (
     <header className="bg-gray-800 text-white">
       <nav className="container mx-auto px-6 py-3 flex justify-between items-center">
-        <div className="text-xl font-bold">Salón de Eventos</div>
+        <div className="text-xl font-bold">Tauro&apos;s</div>
         <div className="hidden md:flex space-x-4">
           <Link href="#" className="hover:text-red-500">
             Inicio
