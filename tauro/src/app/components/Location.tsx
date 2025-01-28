@@ -4,7 +4,7 @@ export default function Location() {
   return (
     <section id="ubicacion" className="py-20 bg-gray-100">
       <div className="container mx-auto px-6">
-        <h2 className="text-3xl font-bold text-center text-gray-800 mb-8">Nuestra Ubicación</h2>
+        <h2 className="text-3xl font-bold text-center text-gray-800 mb-8"> 📍 Nuestra Ubicación</h2>
         <div className="flex flex-col md:flex-row items-center justify-center">
           <div className="w-full md:w-1/2 mb-8 md:mb-0">
             <div className="aspect-w-16 aspect-h-9">
