@@ -1,29 +1,18 @@
 "use client";
 
-import { useState } from "react";
-import Button from "./ui/button";
 import { Card, CardContent } from "./ui/card";
 import { Phone, Mail, MessageCircle } from "lucide-react";
 
 export default function Contact() {
-  const [isCopied, setIsCopied] = useState(false);
   const email = "tauros.berazategui.eventos@gmail.com";
   const phone = "011 7518-0981";
   const whatsapp = "https://wa.me/5491170295182";
-
-  const copyToClipboard = (text: string) => {
-    navigator.clipboard.writeText(text).then(() => {
-      setIsCopied(true);
-      setTimeout(() => setIsCopied(false), 2000);
-    });
-  };
 
   return (
     <section id="contacto" className="py-20 bg-white">
       <div className="container mx-auto px-4">
         <Card className="max-w-md mx-auto bg-white shadow-sm hover:shadow-md transition-shadow duration-300">
           <CardContent className="flex flex-col space-y-4 p-6">
-            {/* Email Contact */}
             <div className="flex items-center space-x-3">
               <Mail className="text-gray-400" size={24} />
               <a
