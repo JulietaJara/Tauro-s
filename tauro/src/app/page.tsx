@@ -5,6 +5,7 @@ import Gallery from "./components/Gallery"
 import Contact from "./components/Contact"
 import Footer from "./components/Footer"
 import Location from "./components/Location"
+import About from "./components/About"
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
         <Hero />
         <Services />
         <Gallery />
+        <About />
         <Location />
         <Contact />
       </main>
