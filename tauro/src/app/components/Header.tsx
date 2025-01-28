@@ -15,7 +15,7 @@ export default function Header() {
           <Link href="#galeria" className="hover:text-red-500">
             Galería
           </Link>
-          <Link href="#sobre-nosotros" className="hover:text-red-500">
+          <Link href="#about" className="hover:text-red-500">
             Sobre Nosotros
           </Link>
           <Link href="#contacto" className="hover:text-red-500">
