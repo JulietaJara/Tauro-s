@@ -9,7 +9,7 @@ export default function Location() {
           <div className="w-full md:w-1/2 mb-8 md:mb-0">
             <div className="aspect-w-16 aspect-h-9">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.8535386916655!2d-74.08304468523807!3d4.639976343504326!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9a2e545a44b1%3A0x4b15704d84b7b2fe!2sCentro%20de%20Bogot%C3%A1%2C%20Bogot%C3%A1%2C%20Colombia!5e0!3m2!1ses!2s!4v1625097721642!5m2!1ses!2s"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3276.522998649641!2d-58.2184962249329!3d-34.79278176750647!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95a328e9f5e3d53d%3A0xbe4617b769e966ff!2sTauro&#39;s%20Eventos!5e0!3m2!1ses!2sus!4v1738036223815!5m2!1ses!2sus"
                 width="600"
                 height="450"
                 style={{ border: 0 }}
@@ -24,12 +24,15 @@ export default function Location() {
               <h3 className="text-xl font-semibold mb-4 flex items-center">
                 <MapPin className="mr-2" /> Dirección
               </h3>
-              <p className="text-gray-600 mb-2">Calle Principal 123</p>
-              <p className="text-gray-600 mb-2">Ciudad, País</p>
-              <p className="text-gray-600 mb-4">Código Postal: 12345</p>
-              <h3 className="text-xl font-semibold mb-2">Horario de Atención</h3>
-              <p className="text-gray-600 mb-1">Lunes a Viernes: 9:00 AM - 7:00 PM</p>
-              <p className="text-gray-600">Sábados y Domingos: 10:00 AM - 6:00 PM</p>
+              <p className="text-gray-600 mb-2">Av. Valentín Vergara 3497</p>
+              <p className="text-gray-600 mb-2">Ranelagh, Argentina</p>
+              <p className="text-gray-600 mb-4">Código Postal: 1884</p>
+              <h3 className="text-xl font-semibold mb-2">Horario de Atención (Verano)</h3>
+              <p className="text-gray-600 mb-1">Lunes a Viernes: 17:00 PM - 19:00 PM</p>
+              <p className="text-gray-600 mb-4">Sábados: 10:00 AM - 12:00 AM</p>
+              <h3 className="text-xl font-semibold mb-2">Horario de Atención (Invierno)</h3>
+              <p className="text-gray-600 mb-1">Lunes a Viernes: 16:00 PM - 18:00 PM</p>
+              <p className="text-gray-600">Sábados: 10:00 AM - 12:00 AM</p>
             </div>
           </div>
         </div>
