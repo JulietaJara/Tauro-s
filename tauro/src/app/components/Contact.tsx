@@ -1,55 +1,61 @@
+"use client";
+
+import { useState } from "react";
+import Button from "./ui/button";
+import { Card, CardContent } from "./ui/card";
+import { Phone, Mail, MessageCircle } from "lucide-react";
+
 export default function Contact() {
-    return (
-      <section id="contacto" className="py-20 bg-white">
-        <div className="container mx-auto px-6">
-          <h2 className="text-3xl font-bold text-center text-gray-800 mb-8">Contáctanos</h2>
-          <form className="max-w-lg mx-auto">
-            <div className="mb-4">
-              <label htmlFor="name" className="block text-gray-700 font-bold mb-2">
-                Nombre
-              </label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
-                required
-              />
+  const [isCopied, setIsCopied] = useState(false);
+  const email = "tauros.berazategui.eventos@gmail.com";
+  const phone = "011 7518-0981";
+  const whatsapp = "https://wa.me/5491170295182";
+
+  const copyToClipboard = (text: string) => {
+    navigator.clipboard.writeText(text).then(() => {
+      setIsCopied(true);
+      setTimeout(() => setIsCopied(false), 2000);
+    });
+  };
+
+  return (
+    <section id="contacto" className="py-20 bg-white">
+      <div className="container mx-auto px-4">
+        <Card className="max-w-md mx-auto bg-white shadow-sm hover:shadow-md transition-shadow duration-300">
+          <CardContent className="flex flex-col space-y-4 p-6">
+            {/* Email Contact */}
+            <div className="flex items-center space-x-3">
+              <Mail className="text-gray-400" size={24} />
+              <a
+                href={`mailto:${email}`}
+                className="text-lg text-gray-700 hover:text-gray-900 transition-colors duration-300"
+              >
+                {email}
+              </a>
             </div>
-            <div className="mb-4">
-              <label htmlFor="email" className="block text-gray-700 font-bold mb-2">
-                Email
-              </label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
-                required
-              />
+            <div className="flex items-center space-x-3">
+              <Phone className="text-gray-400" size={24} />
+              <a
+                href={`tel:${phone}`}
+                className="text-lg text-gray-700 hover:text-gray-900 transition-colors duration-300"
+              >
+                {phone}
+              </a>
             </div>
-            <div className="mb-4">
-              <label htmlFor="message" className="block text-gray-700 font-bold mb-2">
-                Mensaje
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                rows={4}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
-                required
-              ></textarea>
+            <div className="flex items-center space-x-3">
+              <MessageCircle className="text-gray-400" size={24} />
+              <a
+                href={whatsapp}
+                className="text-lg text-gray-700 hover:text-gray-900 transition-colors duration-300"
+              >
+                WhatsApp
+              </a>
             </div>
-            <button
-              type="submit"
-              className="w-full bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-700 transition duration-300"
-            >
-              Enviar Mensaje
-            </button>
-          </form>
-        </div>
-      </section>
-    )
-  }
-  
+          </CardContent>
+        </Card>
+      </div>
+    </section>
+  );
+}
+
   
