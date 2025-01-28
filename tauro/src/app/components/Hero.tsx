@@ -2,7 +2,7 @@
 
 export default function Hero() {
   const handleClick = () => {
-    window.open('https://wa.me/1170295182', '_blank');
+    window.open('https://wa.me/5491170295182', '_blank');
   };
     return (
       <section className="bg-gray-200 text-gray-800 py-20">
