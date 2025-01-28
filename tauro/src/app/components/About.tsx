@@ -2,7 +2,7 @@ export default function About() {
     return (
         <section id="about" className="py-20 bg-white">
             <div className="container mx-auto px-6">
-                <h2 className="text-3xl font-bold mb-10 text-center text-lilac-700">
+                <h2 className="text-3xl font-bold mb-10 text-center text-lilac-700 text-black">
                     Sobre Nosotros
                 </h2>
 
