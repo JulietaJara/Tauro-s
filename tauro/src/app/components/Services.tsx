@@ -1,13 +1,13 @@
 export default function Services() {
     const services = [
-      { title: "Fiestas Infantiles", description: "Diversión garantizada para los más pequeños" },
-      { title: "Cumpleaños", description: "Festeja tu día especial con amigos y familia" },
-      { title: "Bodas y Aniversarios", description: "Celebra tu amor en un ambiente elegante" },
-      { title: "Eventos Corporativos", description: "Espacios ideales para reuniones y conferencias" },
-      { title: "Egresados", description: "Disfruta de una celebración única para cerrar un ciclo y dar la bienvenida a lo nuevo." },
-      { title: "Baby Shower", description: "Celebra la llegada de un nuevo miembro a la familia con una fiesta llena de alegría." },
-      { title: "Fiestas de Retiro", description: "Una fiesta especial para aquellos que se retiran del trabajo o de una etapa de vida." },
-      { title: "Fiestas de Fin de Año", description: "Despide el año con una celebración llena de alegría y buenos deseos." },
+      { title: "Fiestas Infantiles 🥳", description: "Diversión garantizada para los más pequeños" },
+      { title: "Cumpleaños 🎉", description: "Festeja tu día especial con amigos y familia" },
+      { title: "Bodas y Aniversarios 💐", description: "Celebra tu amor en un ambiente elegante" },
+      { title: "Eventos Corporativos 💼", description: "Espacios ideales para reuniones y conferencias" },
+      { title: "Egresados 🎓", description: "Disfruta de una celebración única para cerrar un ciclo y dar la bienvenida a lo nuevo." },
+      { title: "Baby Shower 🍼", description: "Celebra la llegada de un nuevo miembro a la familia con una fiesta llena de alegría." },
+      { title: "Fiestas de Retiro 🥂", description: "Una fiesta especial para aquellos que se retiran del trabajo o de una etapa de vida." },
+      { title: "Fiestas de Fin de Año 🍾", description: "Despide el año con una celebración llena de alegría y buenos deseos." },
     ]
   
     return (

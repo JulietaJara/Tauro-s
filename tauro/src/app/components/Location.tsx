@@ -4,7 +4,7 @@ export default function Location() {
   return (
     <section id="ubicacion" className="py-20 bg-gray-100">
       <div className="container mx-auto px-6">
-        <h2 className="text-3xl font-bold text-center text-gray-800 mb-8">Nuestra Ubicación</h2>
+        <h2 className="text-3xl font-bold text-center text-gray-800 mb-8"> 📍 Nuestra Ubicación</h2>
         <div className="flex flex-col md:flex-row items-center justify-center">
           <div className="w-full md:w-1/2 mb-8 md:mb-0">
             <div className="aspect-w-16 aspect-h-9">
@@ -21,16 +21,16 @@ export default function Location() {
           </div>
           <div className="w-full md:w-1/2 md:pl-8">
             <div className="bg-white p-6 rounded-lg shadow-md">
-              <h3 className="text-xl font-semibold mb-4 flex items-center">
-                <MapPin className="mr-2" /> Dirección
+              <h3 className="text-xl font-semibold mb-4 flex items-center text-black">
+                <MapPin className="mr-2 text-black" /> Dirección
               </h3>
               <p className="text-gray-600 mb-2">Av. Valentín Vergara 3497</p>
               <p className="text-gray-600 mb-2">Ranelagh, Argentina</p>
               <p className="text-gray-600 mb-4">Código Postal: 1884</p>
-              <h3 className="text-xl font-semibold mb-2">Horario de Atención (Verano)</h3>
+              <h3 className="text-xl font-semibold mb-2 text-black">Horario de Atención (Verano)</h3>
               <p className="text-gray-600 mb-1">Lunes a Viernes: 17:00 PM - 19:00 PM</p>
               <p className="text-gray-600 mb-4">Sábados: 10:00 AM - 12:00 AM</p>
-              <h3 className="text-xl font-semibold mb-2">Horario de Atención (Invierno)</h3>
+              <h3 className="text-xl font-semibold mb-2 text-black">Horario de Atención (Invierno)</h3>
               <p className="text-gray-600 mb-1">Lunes a Viernes: 16:00 PM - 18:00 PM</p>
               <p className="text-gray-600">Sábados: 10:00 AM - 12:00 AM</p>
             </div>
