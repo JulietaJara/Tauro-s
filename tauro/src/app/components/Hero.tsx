@@ -9,7 +9,7 @@ export default function Hero() {
         <div className="container mx-auto px-6 text-center">
           <h1 className="text-5xl font-bold mb-4 text-gray-800">Bienvenidos a <span style={{ color: '#DC2626' }}>Tauro&apos;s</span></h1>
           <p className="text-xl mb-8 text-gray-600">
-            El lugar perfecto para tus celebraciones, sean para niños o adultos
+          🎉 El lugar perfecto para tus celebraciones, sean para niños o adultos 🎉
           </p>
           <button 
           onClick={handleClick} 
