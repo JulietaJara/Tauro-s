@@ -6,7 +6,7 @@ interface ButtonProps {
   className?: string;
   asChild?: boolean; 
   href?: string; 
-  variant?: 'primary' | 'secondary' | 'ghost';
+  variant?: 'primary' | 'secondary' | 'ghost'| 'default' | 'outline';
   onClick?: () => void;
 }
 
