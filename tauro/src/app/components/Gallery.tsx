@@ -20,6 +20,9 @@ import baño6 from "./images/baño6.jpg"
 import baño7 from "./images/baño7.jpg"
 import dek4 from "./images/dek4.jpg"
 import dek5 from "./images/dek5.jpg"
+import dek6 from "./images/dek6.jpg"
+import dek7 from "./images/dek7.jpg"
+import dek8 from "./images/dek8.jpg"
 import cancha2 from "./images/cancha2.png"
 import cancha4 from "./images/cancha1.jpg"
 import cancha5 from "./images/cancha2.jpg"
@@ -33,7 +36,7 @@ import pelotero6 from "./images/pelotero6.jpg"
 const imageCategories = {
   todos: [foto1, foto2, foto3, foto4, foto5, foto6, foto7, foto8, foto9],
   pelotero: [pelotero1, pelotero2, pelotero3, pelotero4, pelotero5, pelotero6],
-  dek: [foto7, dek4, dek5],
+  dek: [foto7, dek4, dek5, dek6, dek7, dek8],
   cancha: [cancha2, cancha4, cancha5],
   baños: [baño1, baño2, baño3, baño4, baño6, baño7],
 }
