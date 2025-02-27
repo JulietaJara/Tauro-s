@@ -1,13 +1,14 @@
-import { ReactNode } from 'react';
-import Link from 'next/link';
+import { ReactNode } from "react";
+import Link from "next/link";
 
 interface ButtonProps {
   children: ReactNode;
   className?: string;
-  asChild?: boolean; 
-  href?: string; 
-  variant?: 'primary' | 'secondary' | 'ghost'| 'default' | 'outline';
+  asChild?: boolean;
+  href?: string;
+  variant?: "primary" | "secondary" | "ghost" | "default" | "outline";
   onClick?: () => void;
+  disabled?: boolean; // ✅ Agregar disabled a las props
 }
 
 export default function Button({
@@ -15,15 +16,16 @@ export default function Button({
   className,
   asChild,
   href,
-  variant = 'primary',
+  variant = "primary",
   onClick,
+  disabled, // ✅ Recibir disabled
 }: ButtonProps) {
   const variantClass =
-    variant === 'primary'
-      ? 'bg-lilac-600 hover:bg-lilac-700 text-white'
-      : variant === 'secondary'
-      ? 'bg-lilac-100 text-lilac-700'
-      : 'bg-transparent text-lilac-700 border border-lilac-700';
+    variant === "primary"
+      ? "bg-lilac-600 hover:bg-lilac-700 text-white"
+      : variant === "secondary"
+      ? "bg-lilac-100 text-lilac-700"
+      : "bg-transparent text-lilac-700 border border-lilac-700";
 
   if (asChild && href) {
     return (
@@ -38,7 +40,10 @@ export default function Button({
   return (
     <button
       onClick={onClick}
-      className={`px-4 py-2 rounded-full font-semibold ${variantClass} ${className}`}
+      disabled={disabled} 
+      className={`px-4 py-2 rounded-full font-semibold ${variantClass} ${className} ${
+        disabled ? "opacity-50 cursor-not-allowed" : ""
+      }`} 
     >
       {children}
     </button>
