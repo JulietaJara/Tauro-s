@@ -8,7 +8,7 @@ import { useEffect, useState } from "react"
 import { Card, CardContent } from "./ui/card"
 
 export default function ChatBot() {
-    const { messages, input, handleInputChange, handleSubmit, setMessages } = useChat()
+    const { messages, setMessages } = useChat()
     const [isTyping, setIsTyping] = useState(false);
     const [showOptions, setShowOptions] = useState(true);
 
