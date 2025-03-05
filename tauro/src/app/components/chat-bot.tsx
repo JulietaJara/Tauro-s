@@ -1,9 +1,8 @@
 "use client"
 
 import { useChat } from "ai/react"
-import { Bot, Send, User } from "lucide-react"
+import { Bot, User } from "lucide-react"
 import Button from "./ui/button"
-import { Input } from "./ui/input"
 import { cn } from "../lib/utils"
 import { useEffect, useState } from "react"
 import { Card, CardContent } from "./ui/card"
