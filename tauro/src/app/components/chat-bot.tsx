@@ -11,22 +11,25 @@ import { Card, CardContent } from "./ui/card"
 export default function ChatBot() {
     const { messages, input, handleInputChange, handleSubmit, setMessages } = useChat()
     const [isTyping, setIsTyping] = useState(false);
+    const [showOptions, setShowOptions] = useState(true);
 
     useEffect(() => {
         if (messages.length === 0) {
-            setMessages([
-                {
-                    id: "initial-message",
-                    role: "assistant" as const,
-                    content:
-                        "¡Hola! Soy Caramelo. ¿Qué opción querrías consultar?\n\nA. Cumpleaños infantil\nB. Fiestas Adultos\nC. Egresados \nD. Egresaditos \nE. Matinee \nF. Baby Shower \nG. Primer añito \nH. Otras consultas",
-                },
-            ])
+            setMessages([{
+                id: "initial-message",
+                role: "assistant" as const,
+                content: getInitialMessage(),
+            }]);
         }
-    }, [messages, setMessages])
+    }, [messages, setMessages]);
 
-    const responses: Record<string, string> = {
-        A: ["El cumpleaños infantil incluye para 30 adultos y 30 niños:",
+    const getInitialMessage = () => (
+        "¡Hola! Soy Caramelo. ¿Qué opción querrías consultar?\n\n" +
+        Object.keys(responses).map((option) => `${option}. ${responses[option].title}`).join("\n")
+    );
+
+    const responses: Record<string, { title: string, details: string }> = {
+        A: { title: "Cumpleaños infantil", details: ["El cumpleaños infantil incluye para 30 adultos y 30 niños:",
             "☕ Té/café y kit de mate en el momento de la torta",
             "⏳ 3 horas de duración",
             "👩‍🍳 Una camarera",
@@ -49,8 +52,8 @@ export default function ChatBot() {
             "❄️ Ambiente climatizado",
             "🌿 Jardín y deck",
             "📽️ Proyector"
-        ].join("\n"), 
-        B: ["La fiesta para adultos incluye para 60 personas:",
+        ].join("\n")},
+        B: { title: "Fiestas Adultos", details: ["La fiesta para adultos incluye para 60 personas:",
             "☕ Té/café y kit de mate en el momento de la torta",
             "⏳ 4 horas de duración",
             "👩‍🍳 Dos camareras",
@@ -66,8 +69,8 @@ export default function ChatBot() {
             "❄️ Ambiente climatizado",
             "🌿 Jardín y deck",
             "📽️ Proyector"
-        ].join("\n"), 
-        C: ["Egresados incluye (niños mayores de 10 años):",
+        ].join("\n") },
+        C: { title: "Egresados", details: ["Egresados incluye (niños mayores de 10 años):",
             "☕ Té/café y kit de mate en el momento de la torta",
             "⏳ 4 horas de duración",
             "👩‍🍳 Dos camareras",
@@ -86,8 +89,8 @@ export default function ChatBot() {
             "❄️ Ambiente climatizado",
             "🌿 Jardín y deck",
             "📽️ Proyector"
-        ].join("\n"),
-        D: ["Egresaditos incluye para 40 niños y 50 adultos:",
+        ].join("\n") },
+        D: { title: "Egresaditos", details: ["Egresaditos incluye para 40 niños y 50 adultos:",
             "☕ Té/café y kit de mate en el momento de la torta",
             "⏳ 4 horas de duración",
             "👩‍🍳 Dos camareras",
@@ -111,8 +114,8 @@ export default function ChatBot() {
             "❄️ Ambiente climatizado",
             "🌿 Jardín y deck",
             "📽️ Proyector"
-        ].join("\n"),
-        E: ["La matinee incluye para 50 invitados (mayores 11 años):",
+        ].join("\n") },
+        E: { title: "Matinee", details: ["La matinee incluye para 50 invitados (mayores 11 años):",
             "☕ Té/café y kit de mate en el momento de la torta",
             "⏳ 4 horas de duración",
             "👩‍🍳 Una camarera",
@@ -133,8 +136,8 @@ export default function ChatBot() {
             "❄️ Ambiente climatizado",
             "🌿 Jardín y deck",
             "📽️ Proyector"
-        ].join("\n"),
-        F: ["El baby Shower incluye:",
+        ].join("\n") },
+        F: { title: "Baby Shower", details: ["El baby Shower incluye:",
             "☕ Té/café y kit de mate en el momento de la torta",
             "⏳ 4 horas de duración",
             "👩‍🍳 Dos camareras",
@@ -154,8 +157,8 @@ export default function ChatBot() {
             "❄️ Ambiente climatizado",
             "🌿 Jardín y deck",
             "📽️ Proyector"
-        ].join("\n"), 
-        G: ["El primer añito incluye:",
+        ].join("\n") },
+        G: { title: "Primer añito", details: ["El primer añito incluye:",
             "☕ Té/café y kit de mate en el momento de la torta",
             "⏳ 4 horas de duración",
             "👩‍🍳 Dos camareras",
@@ -178,38 +181,35 @@ export default function ChatBot() {
             "❄️ Ambiente climatizado",
             "🌿 Jardín y deck",
             "📽️ Proyector"
-        ].join("\n"), 
-        H: "Para otras consultas, por favor escribe tu pregunta y te responderé lo antes posible.",
+        ].join("\n") },
     };
 
     const handleOptionSelect = (option: string) => {
-        const userMessage = {
-            id: Date.now().toString(),
-            role: "user" as const,
-            content: `Opción ${option}`,
-        };
-
-        const typingMessage = {
-            id: (Date.now() + 1).toString(),
-            role: "assistant" as const,
-            content: "Escribiendo...",
-        };
+        const userMessage = { id: Date.now().toString(), role: "user" as const, content: `Opción ${option}` };
+        const typingMessage = { id: (Date.now() + 1).toString(), role: "assistant" as const, content: "Escribiendo..." };
 
         setMessages((prevMessages) => [...prevMessages, userMessage, typingMessage]);
         setIsTyping(true);
+        setShowOptions(false);
 
         setTimeout(() => {
             const botMessage = {
                 id: (Date.now() + 2).toString(),
                 role: "assistant" as const,
-                content: responses[option] || "No entiendo esa opción, por favor intenta de nuevo.",
+                content: responses[option]?.details || "No entiendo esa opción, por favor intenta de nuevo.",
+            };
+            const followUpMessage = {
+                id: (Date.now() + 3).toString(),
+                role: "assistant" as const,
+                content: "¿Te gustaría saber sobre otro tipo de eventos?\n\n" +
+                Object.keys(responses).map((option) => `${option}. ${responses[option].title}`).join("\n"),
             };
 
             setMessages((prevMessages) =>
-                prevMessages.filter(msg => msg.id !== typingMessage.id).concat(botMessage)
+                prevMessages.filter(msg => msg.id !== typingMessage.id).concat(botMessage, followUpMessage)
             );
-
             setIsTyping(false);
+            setShowOptions(true);
         }, 2000);
     };
 
@@ -222,16 +222,8 @@ export default function ChatBot() {
 
             <div className="flex-1 overflow-y-auto p-4 space-y-4">
                 {messages.map((message) => (
-                    <div
-                        key={message.id}
-                        className={cn("flex items-start gap-3 max-w-[80%]", message.role === "user" ? "ml-auto" : "")}
-                    >
-                        <div
-                            className={cn(
-                                "rounded-lg px-3 py-2 text-sm",
-                                message.role === "user" ? "bg-primary text-primary-foreground" : "bg-muted",
-                            )}
-                        >
+                    <div key={message.id} className={cn("flex items-start gap-3 max-w-[80%]", message.role === "user" ? "ml-auto" : "")}>
+                        <div className={cn("rounded-lg px-3 py-2 text-sm", message.role === "user" ? "bg-primary text-primary-foreground" : "bg-muted")}>
                             <div className="flex items-center gap-2">
                                 {message.role === "user" ? <User className="w-4 h-4" /> : <Bot className="w-4 h-4" />}
                                 <span style={{ whiteSpace: "pre-line" }}>{message.content}</span>
@@ -240,7 +232,7 @@ export default function ChatBot() {
                     </div>
                 ))}
 
-                {messages.length === 1 && (
+                {(messages.length === 1 || showOptions) && (
                     <Card className="mt-4">
                         <CardContent className="pt-6">
                             <div className="grid grid-cols-2 gap-2">
