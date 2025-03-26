@@ -7,6 +7,7 @@ import Footer from "./components/Footer"
 import Location from "./components/Location"
 import About from "./components/About"
 import Chatbot from "./components/chat-bot"
+import FloatingChatButton from "./components/floating-chat-button"
 
 
 export default function Home() {
@@ -23,6 +24,7 @@ export default function Home() {
         <Contact />
       </main>
       <Footer />
+      <FloatingChatButton />
     </div>
   )
 }
