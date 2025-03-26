@@ -8,7 +8,9 @@ interface ButtonProps {
   href?: string;
   variant?: "primary" | "secondary" | "ghost" | "default" | "outline";
   onClick?: () => void;
-  disabled?: boolean; // ✅ Agregar disabled a las props
+  disabled?: boolean; 
+  type?: "button" | "submit" | "reset";
+  size?: "sm" | "md" | "lg";
 }
 
 export default function Button({
@@ -18,7 +20,8 @@ export default function Button({
   href,
   variant = "primary",
   onClick,
-  disabled, // ✅ Recibir disabled
+  disabled, 
+  type = "button",
 }: ButtonProps) {
   const variantClass =
     variant === "primary"

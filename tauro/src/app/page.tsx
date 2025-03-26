@@ -6,6 +6,8 @@ import Contact from "./components/Contact"
 import Footer from "./components/Footer"
 import Location from "./components/Location"
 import About from "./components/About"
+import FloatingChatButton from "./components/floating-chat-button"
+
 
 export default function Home() {
   return (
@@ -20,6 +22,7 @@ export default function Home() {
         <Contact />
       </main>
       <Footer />
+      <FloatingChatButton />
     </div>
   )
 }
