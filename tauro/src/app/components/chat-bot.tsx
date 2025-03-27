@@ -58,6 +58,7 @@ export default function ChatBot() {
         "❄️ Ambiente climatizado",
         "🌿 Jardín y deck",
         "📽️ Proyector",
+        "👨‍👩‍👧‍👦Es importante destacar que la cantidad tanto de adultos como de chicos se puede personalizar."
       ].join("\n"),
     },
     B: {
@@ -79,6 +80,7 @@ export default function ChatBot() {
         "❄️ Ambiente climatizado",
         "🌿 Jardín y deck",
         "📽️ Proyector",
+        "👨‍👩‍👧‍👦 Es importante destacar que la cantidad tanto de adultos como de chicos se puede personalizar."
       ].join("\n"),
     },
     C: {
@@ -132,6 +134,7 @@ export default function ChatBot() {
         "❄️ Ambiente climatizado",
         "🌿 Jardín y deck",
         "📽️ Proyector",
+        "👨‍👩‍👧‍👦 Es importante destacar que la cantidad tanto de adultos como de chicos se puede personalizar."
       ].join("\n"),
     },
     E: {
@@ -158,6 +161,7 @@ export default function ChatBot() {
         "❄️ Ambiente climatizado",
         "🌿 Jardín y deck",
         "📽️ Proyector",
+        "👨‍👩‍👧‍👦 Es importante destacar que la cantidad tanto de adultos como de chicos se puede personalizar."
       ].join("\n"),
     },
     F: {
