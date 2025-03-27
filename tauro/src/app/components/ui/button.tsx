@@ -21,7 +21,6 @@ export default function Button({
   variant = "primary",
   onClick,
   disabled, 
-  type = "button",
 }: ButtonProps) {
   const variantClass =
     variant === "primary"

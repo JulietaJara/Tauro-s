@@ -9,6 +9,7 @@ import { Card, CardContent } from "./ui/card"
 
 export default function ChatBot() {
   const { messages, setMessages } = useChat()
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [isTyping, setIsTyping] = useState(false)
   const [showOptions, setShowOptions] = useState(true)
 
