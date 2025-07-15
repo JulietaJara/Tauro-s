@@ -1,98 +1,70 @@
 "use client";
 
 import Image from "next/image";
+import { Card } from "./ui/card"; 
+import { Badge } from "./ui/badge"; 
 import { useState } from "react";
-import Button from "./ui/button";
-import foto1 from "./images/tauro1.png";
-import foto2 from "./images/tauro2.png";
-import foto3 from "./images/tauro3.png";
-import foto4 from "./images/tauro4.png";
-import foto5 from "./images/tauro5.png";
-import foto6 from "./images/tauro6.png";
-import foto7 from "./images/tauro7.png";
-import foto8 from "./images/tauro8.png";
-import foto9 from "./images/tauro9.png";
-import baño1 from "./images/baño1.jpg";
-import baño2 from "./images/baño2.jpg";
-import baño3 from "./images/baño3.jpg";
-import baño4 from "./images/baño4.jpg";
-import baño6 from "./images/baño6.jpg";
-import baño7 from "./images/baño7.jpg";
-import dek4 from "./images/dek4.jpg";
-import dek5 from "./images/dek5.jpg";
-import dek6 from "./images/dek6.jpg";
-import dek7 from "./images/dek7.jpg";
-import dek8 from "./images/dek8.jpg";
-import cancha2 from "./images/cancha2.png";
-import cancha4 from "./images/cancha1.jpg";
-import cancha5 from "./images/cancha2.jpg";
-import pelotero1 from "./images/pelotero1.jpg";
-import pelotero2 from "./images/pelotero2.jpg";
-import pelotero3 from "./images/pelotero3.jpg";
-import pelotero4 from "./images/pelotero4.jpg";
-import pelotero5 from "./images/pelotero5.jpg";
-import pelotero6 from "./images/pelotero6.jpg";
+import foto1 from "./images/salon2.jpg";
+import foto2 from "./images/salon5.jpg";
+import foto3 from "./images/tauro1.png";
+import foto4 from "./images/salon1.jpg";
+import foto5 from "./images/dek8.jpg";
+import foto6 from "./images/salon6.jpg";
+import foto7 from "./images/salon3.jpg";
+import foto8 from "./images/salon4.jpg";
+import foto9 from "./images/pelotero4.jpg";
 
-const imageCategories = {
-  todos: [foto1, foto2, foto3, foto4, foto5, foto6, foto7, foto8, foto9],
-  pelotero: [pelotero1, pelotero2, pelotero3, pelotero4, pelotero5, pelotero6],
-  dek: [foto7, dek4, dek5, dek6, dek7, dek8],
-  cancha: [cancha2, cancha4, cancha5],
-  baños: [baño1, baño2, baño3, baño4, baño6, baño7],
-};
+const images = [
+  { src: foto1, tag: "Boda" },
+  { src: foto2, tag: "Quinceañera" },
+  { src: foto3, tag: "Evento Corporativo" },
+  { src: foto4, tag: "Boda" },
+  { src: foto5, tag: "Cumpleaños infantil" },
+  { src: foto7, tag: "Boda" },
+  { src: foto6, tag: "Cumpleaños infantil"},
+  { src: foto9, tag: "Cumpleaños infantil"},
+  { src: foto8, tag: "Cumpleaños adultos"},
+
+];
 
 export default function Gallery() {
-  const [activeCategory, setActiveCategory] = useState("todos");
-  const [loading, setLoading] = useState(false);
-
-  const handleCategoryChange = (category: string) => {
-    setLoading(true);
-    setTimeout(() => {
-      setActiveCategory(category);
-      setLoading(false);
-    }, 800); 
-  };
+  const [showAll, setShowAll] = useState(false);
 
   return (
-    <section id="galeria" className="py-20 bg-gray-100">
-      <div className="container mx-auto px-4 sm:px-6">
-        <h2 className="text-3xl font-bold text-center text-gray-800 mb-8">
-          Galería de Eventos
-        </h2>
+    <section id="galeria" className="py-16 bg-gray-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-12">
+          <h2 className="text-4xl font-bold text-gray-900 mb-4">Galería de Eventos</h2>
+          <p className="text-xl text-gray-600">Momentos únicos capturados en nuestro salón</p>
+        </div>
 
-        <div className="flex flex-wrap justify-center gap-2 mb-8">
-          {Object.keys(imageCategories).map((category) => (
-            <Button
-              key={category}
-              onClick={() => handleCategoryChange(category)}
-              variant={activeCategory === category ? "default" : "outline"}
-              className="mb-2 text-sm sm:text-base"
-              disabled={loading} 
-            >
-              {category.charAt(0).toUpperCase() + category.slice(1)}
-            </Button>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {(showAll ? images : images.slice(0, 6)).map((img, i) => (
+            <Card key={i} className="overflow-hidden hover:shadow-lg transition-shadow group">
+              <div className="relative aspect-[4/3] overflow-hidden">
+                <Image
+                  src={img.src}
+                  alt={`Evento ${i + 1}`}
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors" />
+                <div className="absolute bottom-4 left-4 text-white">
+                  <Badge className="bg-red-600">{img.tag}</Badge>
+                </div>
+              </div>
+            </Card>
           ))}
         </div>
 
-        {loading ? (
-          <div className="flex justify-center items-center h-40">
-            <div className="w-10 h-10 border-4 border-gray-800 border-t-transparent rounded-full animate-spin"></div>
-          </div>
-        ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
-            {imageCategories[activeCategory as keyof typeof imageCategories].map((src, index) => (
-              <div key={index} className="relative overflow-hidden rounded-lg shadow-md aspect-[4/3]">
-                <Image
-                  src={src || "/placeholder.svg"}
-                  alt={`Imagen ${index + 1} de ${activeCategory}`}
-                  fill
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  style={{ objectFit: "cover" }}
-                />
-              </div>
-            ))}
-          </div>
-        )}
+        <div className="text-center mt-12">
+          <button
+            onClick={() => setShowAll(!showAll)}
+            className="border border-red-600 text-red-600 hover:bg-red-600 hover:text-white px-6 py-3 rounded-lg transition duration-300"
+          >
+            {showAll ? "Ver Menos" : "Ver Más Fotos"}
+          </button>
+        </div>
       </div>
     </section>
   );
