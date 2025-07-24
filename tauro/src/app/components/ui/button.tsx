@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ReactNode, MouseEvent } from "react";
 import Link from "next/link";
 
 interface ButtonProps {
@@ -7,7 +7,7 @@ interface ButtonProps {
   asChild?: boolean;
   href?: string;
   variant?: "primary" | "secondary" | "ghost" | "default" | "outline";
-  onClick?: () => void;
+  onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
   disabled?: boolean; 
   type?: "button" | "submit" | "reset";
   size?: "sm" | "md" | "lg";
