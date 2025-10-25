@@ -4,7 +4,7 @@ import { useChat } from "ai/react"
 import { Bot, User, Sparkles, Calendar, Users, Gift, Baby, GraduationCap, PartyPopper } from "lucide-react"
 import Button from "./ui/button"
 import { cn } from "../lib/utils"
-import { useEffect, useState } from "react"
+import { useEffect, useState, ElementType } from "react"
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card"
 import { Badge } from "./ui/badge"
 
@@ -29,7 +29,7 @@ export default function ChatBot() {
   const getInitialMessage = () =>
     "¡Hola! Soy Caramelo 🍭 Tu asistente para eventos especiales. ¿Qué tipo de celebración estás planeando?"
 
-  const optionIcons: Record<string, any> = {
+  const optionIcons: Record<string, ElementType > = {
     A: Calendar,
     B: Users,
     C: GraduationCap,
