@@ -1,11 +1,10 @@
 "use client";
 
 import { Card, CardContent } from "./ui/card";
-import { Phone, Mail, MessageCircle } from "lucide-react";
+import { Mail, MessageCircle } from "lucide-react";
 
 export default function Contact() {
   const email = "tauros.berazategui.eventos@gmail.com";
-  const phone = "011 7518-0981";
   const whatsapp = "https://wa.me/5491170295182";
 
   return (
@@ -20,15 +19,6 @@ export default function Contact() {
                 className="text-lg text-gray-700 hover:text-gray-900 transition-colors duration-300"
               >
                 {email}
-              </a>
-            </div>
-            <div className="flex items-center space-x-3">
-              <Phone className="text-gray-400" size={24} />
-              <a
-                href={`tel:${phone}`}
-                className="text-lg text-gray-700 hover:text-gray-900 transition-colors duration-300"
-              >
-                {phone}
               </a>
             </div>
             <div className="flex items-center space-x-3">

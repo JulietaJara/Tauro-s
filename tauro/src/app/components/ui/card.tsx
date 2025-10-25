@@ -3,10 +3,15 @@ import { ReactNode } from "react";
 interface CardProps {
   children: ReactNode;
   className?: string;
+  onClick?: (event: React.MouseEvent<HTMLDivElement>) => void;
 }
 
-export function Card({ children, className }: CardProps) {
-  return <div className={`border rounded-lg p-4 ${className}`}>{children}</div>;
+export function Card({ children, className, onClick }: CardProps) {
+  return (
+    <div className={`border rounded-lg p-4 ${className}`} onClick={onClick}>
+      {children}
+    </div>
+  );
 }
 
 interface CardHeaderProps {

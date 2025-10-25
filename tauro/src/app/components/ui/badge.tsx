@@ -3,6 +3,7 @@ import { ReactNode } from "react";
 interface BadgeProps {
   children: ReactNode;
   className?: string;
+  variant?: string;
 }
 
 export function Badge({ children, className }: BadgeProps) {
