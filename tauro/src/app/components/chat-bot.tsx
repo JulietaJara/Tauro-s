@@ -16,7 +16,6 @@ export default function ChatBot() {
   const [isTyping, setIsTyping] = useState(false)
   const [showOptions, setShowOptions] = useState(true)
   const messagesEndRef = useRef<HTMLDivElement>(null)
-  
 
   useEffect(() => {
     if (messages.length === 0) {
@@ -24,8 +23,7 @@ export default function ChatBot() {
         {
           id: "initial-message",
           role: "assistant",
-          content:
-            "Hola! Soy Caramelo, tu asistente para eventos especiales. ¿Qué tipo de celebración estás planeando?",
+          content: "¡Hola! Para continuar, elegí una de las siguientes opciones 👇",
         },
       ])
     }
@@ -285,8 +283,8 @@ export default function ChatBot() {
   )
 
   return (
-    <div className="flex flex-col w-full h-screen bg-gray-50">
-      <div className="bg-red-600 p-4 shadow-md">
+    <div className="flex flex-col w-full h-screen bg-gray-50 fixed inset-0 overflow-hidden">
+      <div className="bg-red-600 p-4 shadow-md flex-shrink-0">
         <div className="flex items-center gap-3 max-w-4xl mx-auto">
           <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center flex-shrink-0">
             <Bot className="w-6 h-6 text-red-600" />
@@ -298,8 +296,11 @@ export default function ChatBot() {
         </div>
       </div>
 
-      <div className="flex-1 overflow-y-auto p-4 min-h-0">
-        <div className="max-w-4xl mx-auto space-y-4">
+      <div
+        className="flex-1 overflow-y-auto p-4 min-h-0 overscroll-contain"
+        style={{ WebkitOverflowScrolling: "touch" }}
+      >
+        <div className="max-w-4xl mx-auto space-y-4 pb-6">
           {messages.map((message) => (
             <div
               key={message.id}
@@ -332,10 +333,7 @@ export default function ChatBot() {
           {isTyping && <TypingIndicator />}
 
           {showOptions && (
-            <div className="mt-6 space-y-3 pb-20">
-              
-              <p className="text-sm text-gray-600 text-center mb-4"> ¡Hola! Para continuar, elegí una de las siguientes opciones 👇 </p>
-
+            <div className="mt-6 space-y-3 pb-32">
               {options.map((option) => (
                 <Button
                   key={option.id}
