@@ -3,7 +3,7 @@
 import { Bot, User } from "lucide-react"
 import  Button  from "./ui/button"
 import { cn } from "../lib/utils"
-import { useEffect, useState } from "react"
+import { useEffect, useState, useRef } from "react"
 
 type Message = {
   id: string
@@ -15,6 +15,8 @@ export default function ChatBot() {
   const [messages, setMessages] = useState<Message[]>([])
   const [isTyping, setIsTyping] = useState(false)
   const [showOptions, setShowOptions] = useState(true)
+  const messagesEndRef = useRef<HTMLDivElement>(null)
+  
 
   useEffect(() => {
     if (messages.length === 0) {
@@ -28,6 +30,10 @@ export default function ChatBot() {
       ])
     }
   }, [messages])
+
+  useEffect(() => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
+  }, [messages, showOptions, isTyping])
 
   const options = [
     { id: "A", label: "Cumpleaños infantil" },
@@ -293,7 +299,7 @@ export default function ChatBot() {
       </div>
 
       <div className="flex-1 overflow-y-auto p-4 min-h-0">
-        <div className="max-w-4xl mx-auto space-y-4 pb-4">
+        <div className="max-w-4xl mx-auto space-y-4">
           {messages.map((message) => (
             <div
               key={message.id}
@@ -325,9 +331,10 @@ export default function ChatBot() {
 
           {isTyping && <TypingIndicator />}
 
-          {(messages.length === 1 || showOptions) && (
-            <div className="mt-6 space-y-3 pb-8">
-              <p className="text-sm text-gray-600 text-center mb-4">Selecciona una opción:</p>
+          {showOptions && (
+            <div className="mt-6 space-y-3 pb-20">
+              
+              <p className="text-sm text-gray-600 text-center mb-4"> ¡Hola! Para continuar, elegí una de las siguientes opciones 👇 </p>
 
               {options.map((option) => (
                 <Button
@@ -341,6 +348,8 @@ export default function ChatBot() {
               ))}
             </div>
           )}
+
+          <div ref={messagesEndRef} />
         </div>
       </div>
     </div>
