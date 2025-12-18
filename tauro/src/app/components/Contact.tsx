@@ -1,7 +1,7 @@
 "use client";
 
 import { Card, CardContent } from "./ui/card";
-import {Mail, MessageCircle } from "lucide-react";
+import { Mail, MessageCircle } from "lucide-react";
 
 export default function Contact() {
   const email = "tauros.berazategui.eventos@gmail.com";
