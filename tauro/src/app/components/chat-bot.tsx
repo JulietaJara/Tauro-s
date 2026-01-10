@@ -302,14 +302,7 @@ export default function ChatBot({ onClose }: ChatBotProps) {
     <div className="flex flex-col w-full h-screen bg-gray-50 fixed inset-0 overflow-hidden">
       <div className="bg-red-600 p-4 shadow-md flex-shrink-0">
         <div className="flex items-center gap-3 max-w-4xl mx-auto">
-          <button
-            type="button"
-            onClick={handleReset}
-            className="flex w-10 h-10 bg-white/10 hover:bg-white/20 rounded-full items-center justify-center flex-shrink-0 transition-colors"
-            aria-label="Volver al inicio"
-          >
-            <ArrowLeft className="w-5 h-5 text-white" />
-          </button>
+          
           <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center flex-shrink-0">
             <Bot className="w-6 h-6 text-red-600" />
           </div>
