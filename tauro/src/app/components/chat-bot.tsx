@@ -1,6 +1,6 @@
 "use client"
 
-import { Bot, User } from "lucide-react"
+import { Bot, User, ArrowLeft, X } from "lucide-react"
 import  Button  from "./ui/button"
 import { cn } from "../lib/utils"
 import { useEffect, useState, useRef } from "react"
@@ -11,7 +11,11 @@ type Message = {
   content: string
 }
 
-export default function ChatBot() {
+interface ChatBotProps {
+  onClose?: () => void
+}
+
+export default function ChatBot({ onClose }: ChatBotProps) {
   const [messages, setMessages] = useState<Message[]>([])
   const [isTyping, setIsTyping] = useState(false)
   const [showOptions, setShowOptions] = useState(true)
@@ -267,6 +271,18 @@ export default function ChatBot() {
     }, 1200)
   }
 
+  const handleReset = () => {
+    setMessages([
+      {
+        id: "initial-message",
+        role: "assistant",
+        content: "¡Hola! Para continuar, elegí una de las siguientes opciones 👇",
+      },
+    ])
+    setShowOptions(true)
+    setIsTyping(false)
+  }
+
   const TypingIndicator = () => (
     <div className="flex items-start gap-3 mb-4 max-w-[85%] sm:max-w-[75%]">
       <div className="w-8 h-8 bg-red-600 rounded-full flex items-center justify-center flex-shrink-0">
@@ -286,13 +302,24 @@ export default function ChatBot() {
     <div className="flex flex-col w-full h-screen bg-gray-50 fixed inset-0 overflow-hidden">
       <div className="bg-red-600 p-4 shadow-md flex-shrink-0">
         <div className="flex items-center gap-3 max-w-4xl mx-auto">
+          
           <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center flex-shrink-0">
             <Bot className="w-6 h-6 text-red-600" />
           </div>
-          <div>
+          <div className="flex-1">
             <h1 className="text-white font-bold text-lg">Caramelo</h1>
             <p className="text-red-100 text-sm">Tu asistente para eventos</p>
           </div>
+          {onClose && (
+            <button
+              type="button"
+              onClick={onClose}
+              className="flex w-10 h-10 bg-white/10 hover:bg-white/20 rounded-full items-center justify-center flex-shrink-0 transition-colors"
+              aria-label="Cerrar chat"
+            >
+              <X className="w-5 h-5 text-white" />
+            </button>
+          )}
         </div>
       </div>
 
